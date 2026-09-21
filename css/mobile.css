@@ -1,0 +1,87 @@
+/* Mobile fixes and bounded motion. Loaded after the original theme. */
+html{scroll-behavior:auto;scroll-padding-top:90px}
+body{overflow-x:clip}
+button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+button:focus-visible{outline:2px solid #f2c8d6;outline-offset:4px}
+img{height:auto}
+.topbar{z-index:1100;background:#0b0d17;backdrop-filter:none;-webkit-backdrop-filter:none}
+.topbar .heart-btn{width:46px!important;height:46px!important;min-width:46px!important;flex-shrink:0;position:relative;touch-action:manipulation;transition:transform .18s ease!important}
+.topbar .heart-btn:active{transform:scale(.9)!important}
+.toast{top:auto!important;bottom:calc(18px + env(safe-area-inset-bottom))!important;min-width:0;width:max-content;max-width:calc(100vw - 32px);pointer-events:none;padding:12px 18px!important;font-size:14px!important;transform:translate(-50%,12px)!important;background:#171b2b!important;backdrop-filter:none}
+.toast.show{transform:translate(-50%,0)!important}
+.back{position:relative;top:auto;z-index:1;min-height:44px;margin-bottom:8px}
+.page-transition{display:none!important}
+.page.active-page{animation:mobilePageIn .32s cubic-bezier(.2,.7,.2,1) both!important}
+@keyframes mobilePageIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.reveal-on-scroll{filter:none!important;transform:translateY(12px);transition:opacity .4s ease,transform .4s ease!important}
+.reveal-on-scroll.is-visible{transform:none}
+.page:not(.active-page) *,body.motion-paused *,body.motion-paused *::before,body.motion-paused *::after{animation-play-state:paused!important}
+.glass{backdrop-filter:none;-webkit-backdrop-filter:none}
+.noise{opacity:.018}
+.hub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hub-card{display:flex;flex-direction:column;justify-content:flex-end;min-width:0;min-height:280px!important;padding:20px!important;padding-top:170px!important;height:auto!important}
+.hub-card .card-copy{position:relative!important;inset:auto!important;width:100%;min-width:0}
+.hub-card .card-copy h3{font-size:clamp(25px,3.2vw,34px);line-height:1.13;overflow-wrap:anywhere;letter-spacing:-.035em}
+.hub-card .card-copy p{font-size:14px;line-height:1.5;margin-top:8px}
+.hub-card>div:not(.card-copy){pointer-events:none}
+.hub-card.big,.hub-card.tall,.hub-card.accent{grid-column:auto}
+.mini-btn,.chip,.flower-chip,.tiny-secret{font-size:14px;min-height:44px}
+.cold-thermo-scene{width:min(100%,280px)}
+.cold-thermo-scene .thermo{transform:none!important}
+.cold-thermo-scene .thermo-fill{transform:none!important;left:9px!important;right:9px!important}
+.thermo-mark{font-size:12px;letter-spacing:.025em}
+.t-cold{left:0;top:40px}.t-warm{right:0;bottom:36px}
+.shoulder-box .seat-left{left:calc(50% - 110px)!important}
+.shoulder-box .seat-right{right:calc(50% - 110px)!important}
+.shoulder-box.done .seat-right{transform:translateX(-40px)}
+.shoulder-box.done .seat-right .head{transform:translate(-14px,10px) rotate(-17deg)}
+/* Restore the original white eyes and grey-blue irises. */
+.eyes-box{min-height:210px!important;gap:24px!important;background:#13151f}
+.eyes-box .look-line,.eyes-box .eye-spark{display:none}
+.eyes-box .eye,.eyes-box.blink .eye{width:104px;height:58px;flex:0 0 104px;border:0;border-radius:50%;background:#fff;box-shadow:none;transform:none;overflow:hidden;animation:naturalBlink 5.8s ease-in-out infinite;transition:none}
+.eyes-box .eye i,.eyes-box:hover .eye i,.eyes-box.blink .eye i{width:34px!important;height:34px!important;left:50%;top:50%;transform:translate(-50%,-50%)!important;border:8px solid #9fb8bf!important;background:#577989!important;box-shadow:none;transition:none!important}
+.eyes-box.blink .eye{animation:requestedBlink .65s ease-in-out both}
+@keyframes naturalBlink{0%,42%,46%,100%{transform:scaleY(1)}44%{transform:scaleY(.07)}}
+@keyframes requestedBlink{0%,45%,100%{transform:scaleY(1)}20%,68%{transform:scaleY(.07)}}
+.gaze-moment .gaze-visual{display:flex;align-items:center;justify-content:center;background:#171923}
+.gaze-moment .brown-eyes-art{display:block;width:100%;height:100%;object-fit:contain;max-width:100%;border-radius:24px;}
+.flower-picker{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.flower-chip{min-width:0;padding:10px;gap:8px;flex-direction:column;text-align:center}
+.flower-chip img{flex-shrink:0;width:54px;height:64px}
+.flower-chip span{font-size:14px;line-height:1.3;overflow-wrap:anywhere}
+.bouquet-canvas-photo{height:440px!important;min-height:440px!important}
+.bouquet-flowers{inset:0!important;height:auto!important}
+.bouquet-stem{bottom:58px!important;height:330px!important;width:48%!important;max-width:215px!important;filter:none}
+.bouquet-canvas-photo .vase{height:132px!important;width:126px;bottom:18px!important;backdrop-filter:none;-webkit-backdrop-filter:none;transition:opacity .25s ease}
+.bouquet-canvas-photo .vase .ribbon{top:34px}
+.bouquet-final{inset:12px!important}
+.bouquet-final img{height:100%;max-height:410px;width:100%;object-fit:contain;filter:none}
+.bouquet-canvas-photo.is-finished .vase,.bouquet-canvas-photo.is-finished .bouquet-flowers{opacity:0;visibility:hidden;pointer-events:none}
+.milk-card-visual{width:min(100%,240px);min-width:0;height:160px;margin:0 auto 16px;flex-shrink:0}
+.milk-card-visual i{right:0;left:0;bottom:16px;text-align:center;letter-spacing:.08em}
+.milk-card-visual span{align-self:start;margin-top:20px}
+@media(max-width:600px){
+ .hub-grid{grid-template-columns:1fr;gap:14px}
+ .hub-card{min-height:245px!important;padding-top:155px!important;border-radius:24px}
+ .hub-card .card-copy h3{font-size:30px}
+ .hub-card .card-copy p{font-size:15px}
+ .hero-copy h1{line-height:1.08}
+ .section-head{margin:28px auto}
+ .touch-copy{padding:22px!important}
+ .touch-visual{min-height:210px!important}
+ .thermo-box{min-height:270px!important}
+ .touch-copy h3{font-size:32px;line-height:1.15}
+ .touch-copy p{font-size:16px;line-height:1.65}
+ .snack-grid-photo{grid-template-columns:minmax(0,1fr)}
+ .snack-card{min-width:0}
+ .hero-visual,.hub-card,.touch-card{box-shadow:0 12px 32px rgba(0,0,0,.15)}
+ .ambient-fx{display:none}
+ .reveal-on-scroll{opacity:1!important;transform:none!important}
+ .sky-panel{min-height:490px!important}
+ .night-chat{min-height:480px!important;max-height:560px!important}
+ .page{padding-bottom:calc(48px + env(safe-area-inset-bottom))}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ .reveal-on-scroll{opacity:1!important;transform:none!important}
+}

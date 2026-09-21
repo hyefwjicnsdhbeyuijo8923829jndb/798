@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" role="img" aria-labelledby="title desc">
+  <title id="title">Карі очі</title>
+  <desc id="desc">Дві прості білі форми очей із карими райдужками</desc>
+  <rect width="640" height="260" rx="28" fill="#171923"/>
+  <g transform="translate(46 57)">
+    <path d="M0 73C43 3 181 3 224 73C181 143 43 143 0 73Z" fill="#fff"/>
+    <circle cx="112" cy="73" r="38" fill="#b98755"/>
+    <circle cx="112" cy="73" r="22" fill="#4a2b1b"/>
+    <circle cx="101" cy="62" r="7" fill="#fff" opacity=".8"/>
+  </g>
+  <g transform="translate(370 57)">
+    <path d="M0 73C43 3 181 3 224 73C181 143 43 143 0 73Z" fill="#fff"/>
+    <circle cx="112" cy="73" r="38" fill="#b98755"/>
+    <circle cx="112" cy="73" r="22" fill="#4a2b1b"/>
+    <circle cx="101" cy="62" r="7" fill="#fff" opacity=".8"/>
+  </g>
+</svg>

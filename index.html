@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d0d14">
+  <title>7 · 9 · 8 — Тані</title>
+  <meta name="description" content="Маленький світ Макса і Тані">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/v54.css">
+  <link rel="stylesheet" href="css/cute.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="noise"></div>
+  <div id="ambientFx" class="ambient-fx"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <section id="intro" class="view active intro-screen">
+    <div class="intro-glow glow-a"></div>
+    <div class="intro-glow glow-b"></div>
+    <div class="intro-card glass">
+      <p class="eyebrow">ну привіт</p>
+      <h1>Тань, а пам'ятаєш,<br>з чого це все взагалі почалось?</h1>
+      <div class="intro-choices">
+        <button class="choice-card" id="normalChoice"><span class="choice-no">01</span><span class="choice-copy"><b>гарне нормальне знайомство</b><small>кава, естетика, все по-людськи</small></span></button>
+        <button class="choice-card hot" id="bathChoice"><span class="choice-no">02</span><span class="choice-copy"><b>ванна + дуже п'яний Макс</b><small>ну йой, так вийшло</small></span></button>
+      </div>
+      <div id="wrongAnswer" class="wrong-answer">нє, не так <b>— в нас усе не як в людей</b></div>
+    </div>
+  </section>
+
+  <section id="reveal" class="view reveal-screen">
+    <div class="reveal-wrap">
+      <p class="eyebrow">офіційно</p>
+      <div class="shuffle-numbers"><span>7</span><i>·</i><span id="flipA">8</span><i>·</i><span id="flipB">9</span></div>
+      <div class="final-numbers"><span>7</span><i>·</i><span>9</span><i>·</i><span>8</span></div>
+      <h2>в нас все не як в людей</h2>
+      <p class="muted center">07.09.2026</p>
+      <div class="counter-pill glass"><b id="daysTogether">0</b><span id="daysWord">днів разом</span></div>
+      <div class="reveal-secret-row"><button class="tiny-secret" id="dateSecretBtn">чому 7 · 9 · 8?</button><span id="dateSecretText"></span></div>
+      <button class="btn primary" id="enterWorld">ну давай далі</button>
+    </div>
+  </section>
+
+  <main id="app" class="app hidden">
+    <header class="topbar">
+      <div class="topbar-branding"><button class="brand" data-go="hub">7 · 9 · 8</button><span class="brand-sub">в нас все не як в людей</span></div>
+      <div class="topbar-right"><span id="sectionLabel">наш маленький світ</span><button id="secretUnlock" class="secret-unlock hidden" data-go="secret">секрет</button><button id="miniHeart" class="icon-btn heart-btn" aria-label="сердечко">❤️</button></div>
+    </header>
+    <div id="pageTransition" class="page-transition"></div>
+    <div id="pages"><section class="page active-page" id="hub">
+<div class="hero">
+<div class="hero-copy">
+<p class="eyebrow">Макс + Таня</p>
+<h1>Не сайт,<br/>а маленький світ<br/>про нас.</h1>
+<p class="lead">З усіма важливими штуками: ванна, нічні розмови, довгі прощання, желейки, зорі, тактильність, дурні приколи і те, як мені добре з тобою.</p>
+<div class="hero-pills">
+<span class="glass">нічні розмови</span>
+<span class="glass">обійми і зорі</span>
+<span class="glass">наші маленькі приколи</span>
+</div>
+<div class="hero-small-actions"><button class="tiny-secret hero-secret" id="grechkaSecret">гречка?</button><button class="tiny-secret hero-secret little-thing-btn" id="littleThingBtn">тиць сюди ✦</button></div>
+</div>
+<div class="hero-visual glass tanya-hero-gallery">
+<div class="hero-stars" id="heroStars"></div>
+<div class="gallery-glow"></div>
+<figure class="tanya-shot shot-a"><img width="480" height="720" loading="lazy" decoding="async" alt="Таня" data-src="assets/personal/tanya/tanya-night-1.webp"/><span>Сонечко</span></figure>
+<figure class="tanya-shot shot-b"><img width="480" height="720" loading="lazy" decoding="async" alt="Таня" data-src="assets/personal/tanya/tanya-night-2.webp"/><span>золотко</span></figure>
+<figure class="tanya-shot shot-c"><img width="480" height="720" loading="lazy" decoding="async" alt="Таня" data-src="assets/personal/tanya/tanya-night-3.webp"/><span>Киця</span></figure>
+<div class="hero-badge one">03:13</div>
+<div class="hero-badge two">мімімі</div>
+<div class="hero-badge three">7 · 9 · 8</div>
+</div>
+</div>
+<div class="hub-grid">
+<button class="hub-card big glass" data-go="story">
+<div class="calendar-art">
+<span class="ring"></span><span class="ring"></span>
+<b>07</b><small>09 · 26</small>
+</div>
+<div class="card-copy"><h3>Наша історія</h3><p>від ванни до «люблю тебе»</p></div>
+</button>
+<button class="hub-card dark glass" data-go="nights">
+<div class="mini-sky"><span class="moon"></span><span class="shoot"></span></div>
+<div class="card-copy"><h3>Нічні розмови</h3><p>03:00, зорі і «ще не хочу спати»</p></div>
+</button>
+<button class="hub-card rain-card glass" data-go="missed">
+<div aria-hidden="true" class="rain-preview"><span class="rp one"></span><span class="rp two"></span><i></i><i></i><i></i><i></i><i></i></div>
+<div class="card-copy"><h3>Я просто скучив</h3><p>21.09 · десь між 04:00 і 05:00</p></div>
+</button><button class="hub-card comfort-hub-card glass" id="comfortHub">
+<div aria-hidden="true" class="comfort-art"><span class="comfort-heart">❤️</span><span class="comfort-ring r1"></span><span class="comfort-ring r2"></span></div>
+<div class="card-copy"><h3>Коли сумуєш</h3><p>натисни. там я трохи поруч ❤️</p></div>
+</button>
+<button class="hub-card glass" data-go="goodbye">
+<div class="door-art"><span class="person left"></span><span class="person right"></span></div>
+<div class="card-copy"><h3>Не хочу йти</h3><p>ще 1 хвилинка, і ще одна</p></div>
+</button>
+<button class="hub-card blush glass" data-go="touch">
+<div class="touch-art"><span class="hand left"></span><span class="hand right"></span></div>
+<div class="card-copy"><h3>Тактильність</h3><p>обійми, плечі, руки, очі</p></div>
+</button>
+<button class="hub-card glass" data-go="tanya">
+<div class="flower-art"><span>✿</span><span>❀</span><span>✾</span></div>
+<div class="card-copy"><h3>Твої улюблені штуки</h3><p>квіти, смакота, желейки і машини</p></div>
+</button>
+<button class="hub-card glass" data-go="zoo">
+<div class="zoo-art"><span>🐶</span><span>🐒</span><span>🐸</span></div>
+<div class="card-copy"><h3>Хто сьогодні Макс?</h3><p>мальтіпу / бібізяна / пуголовок</p></div>
+</button>
+<button class="hub-card tall glass" data-go="archive">
+<div class="archive-art"><div class="phone-stack"></div></div>
+<div class="card-copy"><h3>Telegram-архів</h3><p>реальні повідомлення, які я хочу лишити тут</p></div>
+</button>
+<button class="hub-card accent glass" data-go="final">
+<div class="letter-art"><span class="env-flap"></span><span class="env-seal">♡</span></div>
+<div class="card-copy"><h3>На кінець</h3><p>тут уже серйозніше</p></div>
+</button>
+</div>
+</section>
+<section class="page" id="story">
+<button class="back" data-go="hub">← назад</button>
+<header class="section-head">
+<p class="eyebrow">короче, як це все почалось</p>
+<h2>Наша історія</h2>
+<p>Я не буду брехати й робити з цього ідеальну казку. Мені якраз подобається, що все почалось дивно, але дуже по-нашому.</p>
+</header>
+<div class="timeline">
+<article class="story-card glass story-bath">
+<span class="story-date">27.08.2026</span>
+<div class="bath-scene real-bath-scene">
+<img width="672" height="900" loading="lazy" decoding="async" alt="Сцена з ванною" data-src="assets/polished/story/bath.webp"/>
+<div class="scene-badge">початок був дуже неочікуваний</div>
+</div>
+<div class="story-copy">
+<span class="story-no">01</span>
+<h3>дуже сильний дебют</h3>
+<p>Я дуже сильно напився. А ти сиділа біля мене, давала воду, поливала водою у ванній і гріла мої холодні руки. І саме з цього чомусь почалась одна з найкращих штук у моєму житті.</p>
+<button class="mini-btn" id="bathFactBtn">ще</button>
+<p class="mini-note" id="bathFact"></p>
+</div>
+</article>
+<article class="story-card glass">
+<span class="story-date">28.08.2026</span>
+<div class="bar-scene milka-scene">
+<img width="900" height="355" loading="lazy" decoding="async" alt="Milka Oreo" data-src="assets/polished/story/milka.webp"/>
+</div>
+<div class="story-copy">
+<span class="story-no">02</span>
+<h3>версія Макса 2.0</h3>
+<p>На наступний день я прийшов до тебе на роботу вже тверезий, приніс шоколадку і вибачився. І це вже було хоч трохи більш достойне знайомство.</p>
+<button class="tiny-secret" id="milkaSecret">тиць на шоколадку</button>
+</div>
+</article>
+<article class="story-card glass sock-card">
+<span class="story-date">ранній мем</span>
+<div class="sock-scene" id="sockScene">
+<div class="sock" id="sockEl"><span class="hole"></span></div>
+</div>
+<div class="story-copy">
+<span class="story-no">03</span>
+<h3>легендарні шкарпетки</h3>
+<p>Я досі майже нічого з цього не пам'ятаю. Але факт залишається фактом: була маленька дірка, я потягнув шкарпетку — і вона порвалась.</p>
+<p class="mini-note" id="sockNote">«бля в чому прикол такі короткі шкарпетки носити» — це просто офіційно лишається тут як мем.</p>
+</div>
+</article>
+<article class="story-card glass bench-card">
+<span class="story-date">29/30.08.2026</span>
+<div class="bench-scene">
+<div class="bench-stars"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="moon"></div>
+<div class="bench"><span class="bench-person p1"></span><span class="bench-person p2"></span></div>
+</div>
+<div class="story-copy">
+<span class="story-no">04</span>
+<h3>лавка, тиша і довгі обійми</h3>
+<p>Перша нормальна довга прогулянка удвох. Я провів тебе додому, ми дві години сиділи близько на лавці, і на прощання були довгі обійми.</p>
+<button class="mini-btn" id="benchBtn">посунути ближче</button>
+</div>
+</article>
+<article class="story-card glass reveal-card hand-story-card">
+<span class="story-date">07.09.2026</span>
+<div class="hand-moment" id="handMoment">
+<div class="hand-person left-person"><span class="hand-glow"></span><b>Макс</b><small>нічого не форсить</small></div>
+<div class="hand-bridge">
+<span class="bridge-line"></span>
+<button aria-label="З'єднати руки" class="hand-connect-btn" id="handConnectBtn">♡</button>
+<span class="hand-symbol">🤝</span>
+</div>
+<div class="hand-person right-person"><span class="hand-glow"></span><b>Таня</b><small>сама бере за руку</small></div>
+</div>
+<p class="centerline" id="handLine">натисни на серце між нами</p>
+<div class="story-copy">
+<span class="story-no">05</span>
+<h3>7 · 9 · 8</h3>
+<p>Ти сама взяла мене за долоню. А потім на прощання поцілувала у відповідь. Ну і всьо — офіційно.</p>
+</div>
+</article>
+<article class="story-card glass love-card">
+<span class="story-date">11–15.09.2026</span>
+<div class="love-path" id="lovePath">
+<span class="love-line"></span>
+<button class="love-stop active" data-love="11/12.09 — перший взаємний поцілунок у губи"><i></i><b>поцілунок</b><small>11/12.09</small></button>
+<button class="love-stop" data-love="13.09 — ти вже сама ініціюєш поцілунок"><i></i><b>твоя ініціатива</b><small>13.09</small></button>
+<button class="love-stop" data-love="14–15.09 — «люблю тебе» вже з обох сторін"><i></i><b>люблю тебе</b><small>14–15.09</small></button>
+</div>
+<div class="love-caption" id="loveCaption">11/12.09 — перший взаємний поцілунок у губи</div>
+<div class="story-copy">
+<span class="story-no">06</span>
+<h3>все стало тільки ближче</h3>
+<p>За кілька днів усе дуже природно стало ще ближчим: поцілунки, твоя ініціатива, а потім «люблю тебе», яке вже не треба було витягувати — воно просто стало нашим.</p>
+</div>
+</article>
+</div>
+</section>
+<section class="page dark-page" id="nights">
+<button class="back light" data-go="hub">← назад</button>
+<header class="section-head narrow">
+<p class="eyebrow">03:00 — 04:00</p>
+<h2>Нічні розмови</h2>
+<p>Мабуть одна з моїх найулюбленіших штук про нас — це як ми не хотіли йти спати, сиділи до 3–4 ночі, говорили про все підряд і ловили той дивний кайф від того, що нам просто добре разом.</p>
+</header>
+<div class="night-layout">
+<div class="sky-panel glass dark-glass">
+<div class="night-sky" id="nightSky"></div>
+<div aria-hidden="true" class="night-moon"><span></span></div>
+<svg aria-label="Велика та Мала ведмедиці" class="constellation-map" id="constellationMap" role="img" viewBox="0 0 900 560">
+<g class="ursa ursa-major">
+<text x="86" y="84">Велика ведмедиця</text>
+<polyline points="120,190 205,148 292,212 222,298 120,190 292,212 400,176 520,135 650,110"></polyline>
+<circle cx="120" cy="190" r="7"></circle><circle cx="205" cy="148" r="7"></circle><circle cx="292" cy="212" r="7"></circle><circle cx="222" cy="298" r="7"></circle><circle cx="400" cy="176" r="7"></circle><circle cx="520" cy="135" r="7"></circle><circle cx="650" cy="110" r="7"></circle>
+</g>
+<g class="ursa ursa-minor">
+<text x="520" y="342">Мала ведмедиця</text>
+<polyline points="720,455 646,425 575,392 506,365 444,410 493,474 572,445 506,365"></polyline>
+<circle class="polaris-svg" cx="720" cy="455" r="8"></circle><circle cx="646" cy="425" r="6"></circle><circle cx="575" cy="392" r="6"></circle><circle cx="506" cy="365" r="6"></circle><circle cx="444" cy="410" r="6"></circle><circle cx="493" cy="474" r="6"></circle><circle cx="572" cy="445" r="6"></circle>
+<text class="polaris-label" x="738" y="462">Полярна</text>
+</g>
+</svg>
+<div class="star-controls">
+<button class="mini-btn light-btn" id="showConstellations">показати ведмедиці</button>
+<button class="mini-btn light-btn" id="shootingStarBtn">загадати бажання</button>
+</div>
+<div class="star-wish" id="starWish">коли було чисте небо, ми дивились на зорі, шукали ведмедиці і загадували бажання.</div>
+</div>
+<div class="night-chat glass dark-glass">
+<div class="night-chat-head"><span>Telegram · 12.09 · дуже пізно</span><b id="nightClock">03:00</b></div>
+<div class="night-messages" id="nightMessages"></div>
+<button class="btn secondary light-btn" id="playNightBtn">прокрутити ніч</button>
+</div>
+</div>
+</section>
+<section class="page missed-page" id="missed">
+<button class="back light" data-go="hub">← назад</button>
+<div class="missed-rain" id="missedRain"></div>
+<header class="section-head narrow missed-head">
+<p class="eyebrow">21.09 · десь між 04:00 і 05:00</p>
+<h2>Я просто скучив</h2>
+<p>Після того, як ти повернулась з Польщі. Ідея була буквально на пару хвилин.</p>
+</header>
+<div class="missed-wrap">
+<section class="missed-chat glass dark-glass">
+<div class="missed-clock" id="missedClock">03:45</div>
+<div class="missed-messages" id="missedMessages"></div>
+<button class="btn secondary light-btn" id="playMissedChat">прокрутити переписку</button>
+</section>
+<div class="missed-bridge">
+<span></span><p>Пару хвилин перетворились приблизно на годину.</p><span></span>
+</div>
+<div class="missed-moments">
+<article class="missed-moment glass gaze-moment">
+<div class="gaze-visual"><img class="brown-eyes-art" src="assets/brown-eyes-simple.svg" alt="Прості карі очі" width="640" height="260" loading="lazy" decoding="async"></div>
+<div><small>01</small><h3>дивитися в очі</h3><p>А раніше не могла дивитись :)</p></div>
+</article>
+<article class="missed-moment glass goose-moment" id="gooseMoment">
+<div class="goose-visual"><span class="silhouette s-left"></span><span class="silhouette s-right"></span><div class="goose-dots"></div></div>
+<div><small>02</small><h3>мурашки</h3><p>натисни на обійми</p><button class="mini-btn" id="gooseBtn">обійняти</button><p class="mini-note" id="gooseText"></p></div>
+</article>
+<article class="missed-moment glass kiss-moment" id="kissMoment">
+<div class="kiss-visual">
+<span class="kiss-person kiss-a"><i class="kh"></i><i class="kb"></i></span>
+<span class="kiss-person kiss-b"><i class="kh"></i><i class="kb"></i></span>
+<span class="kiss-glow"></span><span class="kiss-heart">♡</span>
+</div>
+<div><small>03</small><h3>і після цих слів — ще один цьом.</h3><p>Ніжно. Просто тому що дуже хотілось бути ближче.</p><button class="mini-btn" id="kissBtn">цей момент</button></div>
+</article>
+<article class="missed-moment glass tickle-moment">
+<div class="tickle-zone"><button class="tickle-text" id="tickleText">в мене нема лоскотів</button></div>
+<div><small>04</small><h3>ага. звичайно.</h3><p>окрема дуже правдива заява 😛</p></div>
+</article>
+</div>
+<section class="missed-final glass">
+<div class="missed-final-time">05:05</div>
+<blockquote>«Ні краплі не шкодую що почекав поки ти приїдеш»</blockquote>
+<div class="missed-space"></div>
+<h3>Я просто дуже скучив.</h3>
+<p>і, здається, саме тому мене так трусило.</p>
+</section>
+</div>
+</section>
+<section class="page" id="goodbye">
+<button class="back" data-go="hub">← назад</button>
+<header class="section-head">
+<p class="eyebrow">ну ше трішки</p>
+<h2>Не хочу йти</h2>
+<p>Окрема важлива тема — як ми сиділи годинами біля тебе, не хотіли розходитись, прощались по 10 хвилин і кожен раз знаходили причину постояти ще трохи.</p>
+</header>
+<div class="goodbye-grid">
+<div class="goodbye-visual glass">
+<div class="lamp-scene">
+<div class="lamp"></div>
+<div class="goodbye-people" id="goodbyePeople"><span class="gp a"></span><span class="gp b"></span></div>
+</div>
+<div class="goodbye-counter">
+<div><small>час прощання</small><b id="goodbyeTime">00:00</b></div>
+<button class="btn secondary" id="delayBtn">ще 2 хвилинки</button>
+</div>
+<p class="muted small" id="goodbyeNote"></p>
+</div>
+<div class="goodbye-list glass">
+<div class="quote-row"><span>01</span><p>сиділи біля тебе годинами і не хотіли йти</p></div>
+<div class="quote-row"><span>02</span><p>прощались хвилин по 10 і все одно стояли далі</p></div>
+<div class="quote-row"><span>03</span><p>«я так до ранку міг би сидіти»</p></div>
+<div class="quote-row"><span>04</span><p>«кожен раз метелики від цього»</p></div>
+<div class="quote-row"><span>05</span><p>і навіть коли вже треба було йти — не хотілось</p></div>
+</div>
+</div>
+</section>
+<section class="page" id="touch">
+<button class="back" data-go="hub">← назад</button>
+<header class="section-head">
+<p class="eyebrow">дуже важлива річ</p>
+<h2>Тактильність</h2>
+<p>Мені дуже подобається все, де є якась фізична близькість між нами. Обійми, руки, голова на плечі, голова до голови, поцілунки, просто сидіти притулившись.</p>
+</header>
+<div class="touch-intro-strip">
+<article class="mood-card glass">
+<span>обійми</span><b>довші, ніж треба</b><p>і все одно кожного разу мало.</p>
+</article>
+<article class="mood-card glass">
+<span>голова на плечі</span><b>одна з моїх улюблених речей</b><p>спокійно, тепло і по-нашому.</p>
+</article>
+<article class="mood-card glass eye-card">
+<span>дивитися в очі</span><b>мої сірувато-блакитні</b><p>а ти дивишся так, що я іноді просто забуваю, що хотів сказати 😛</p>
+</article>
+</div>
+<div class="touch-grid">
+<article class="touch-card glass">
+<div class="touch-visual thermo-box"><div class="cold-thermo-scene"><div class="frost-orbit f1"></div><div class="frost-orbit f2"></div><div class="thermo"><div class="thermo-fill" id="thermoFill"></div></div><span class="thermo-mark t-cold">холодно</span><span class="thermo-mark t-warm">вже норм</span></div></div>
+<div class="touch-copy">
+<h3>пуголовок</h3>
+<p>Бо розмова почалась з того, що в мене холодні руки. Я сказав, що я ящірка. Потім жаба. А потім ти придумала, що я пуголовок.</p>
+<button class="mini-btn" id="warmBtn">зігріти руки</button>
+<p class="mini-note" id="warmText">температура: підозріла</p>
+</div>
+</article>
+<article class="touch-card glass">
+<div class="touch-visual hug-box" id="hugBox"><span class="hug-person hp-left"><i class="head"></i><i class="body"></i><i class="arm"></i></span><span class="hug-person hp-right"><i class="head"></i><i class="body"></i><i class="arm"></i></span><span class="hug-aura"></span></div>
+<div class="touch-copy">
+<h3>обійми</h3>
+<p>Тут буквально нема що пояснювати. Просто посунути ближче — і вже добре.</p>
+<button class="mini-btn" id="hugBtn">приобняти</button>
+<p class="mini-note" id="hugText"></p>
+</div>
+</article>
+<article class="touch-card glass">
+<div class="touch-visual shoulder-box" id="shoulderBox"><span class="seated-person seat-left"><i class="head"></i><i class="torso"></i><i class="leg"></i></span><span class="seated-person seat-right"><i class="head"></i><i class="torso"></i><i class="leg"></i></span><span class="shoulder-spark">✦</span></div>
+<div class="touch-copy">
+<h3>голова на плечі</h3>
+<p>Це один із моментів, які я реально міг би повторювати безкінечно.</p>
+<button class="mini-btn" id="shoulderBtn">покласти голову</button>
+<p class="mini-note" id="shoulderText">«в мене такі мурашки пішли»</p>
+</div>
+</article>
+<article class="touch-card glass dark-inner">
+<div class="touch-visual eyes-box" id="eyesBox" aria-label="очі Макса">
+  <span class="eye eye-left"><i></i></span>
+  <span class="look-line"></span>
+  <span class="eye eye-right"><i></i></span>
+  <span class="eye-spark eye-spark-a"></span>
+  <span class="eye-spark eye-spark-b"></span>
+</div>
+<div class="touch-copy">
+<h3>дивитися в очі</h3>
+<p>Мені дуже подобається, коли ми просто дивимось одне на одного. А сірувато-блакитні тут, якщо що, мої — не переплутай 😛</p>
+<button class="mini-btn light-btn" id="blinkBtn">не стидайся</button>
+</div>
+</article>
+</div>
+</section>
+<section class="page" id="tanya">
+<button class="back" data-go="hub">← назад</button>
+<header class="section-head">
+<p class="eyebrow">дуже об'єктивний профіль</p>
+<h2>Твої улюблені штуки</h2>
+<p>Тут усе, що в мене вже дуже чітко асоціюється з тобою: квіти, смакота, желейки, машини і ще купа дрібниць. Мімімі, коротше 🥰</p>
+</header>
+<div class="tanya-grid">
+<div class="glass bouquet-panel">
+<div class="panel-head"><h3>Збери букет</h3><p>кущові троянди, півонії, ранункулюси й еустоми. Збирай як хочеш — тут помилитись важко 🌸</p></div>
+<div class="bouquet-canvas bouquet-canvas-photo" id="bouquetCanvas">
+<div class="bouquet-haze"></div>
+<div class="bouquet-flowers" id="bouquetFlowers"></div>
+<div class="vase"><span class="water"></span><button aria-label="секретне сердечко" class="ribbon" id="bouquetHeart">♡</button></div>
+<div class="bouquet-final" id="bouquetFinal"><img width="576" height="720" loading="lazy" decoding="async" alt="Готовий букет" data-src="assets/polished/flowers/complete-bouquet.webp"/></div>
+</div>
+<div class="flower-picker">
+<button class="flower-chip" data-flower="rose"><img width="688" height="720" loading="lazy" decoding="async" alt="Кущова троянда" data-src="assets/polished/flowers/spray-rose.webp"/><span>троянда</span></button>
+<button class="flower-chip" data-flower="peony"><img width="480" height="720" loading="lazy" decoding="async" alt="Півонія" data-src="assets/polished/flowers/peony.webp"/><span>півонія</span></button>
+<button class="flower-chip" data-flower="ranunculus"><img width="696" height="720" loading="lazy" decoding="async" alt="Ранункулюс" data-src="assets/polished/flowers/blush.webp"/><span>ранункулюс</span></button>
+<button class="flower-chip" data-flower="eustoma"><img width="696" height="720" loading="lazy" decoding="async" alt="Еустома" data-src="assets/polished/flowers/eustoma.webp"/><span>еустома</span></button>
+<button class="chip ghost" id="clearBouquet">заново</button>
+<button class="chip bouquet-finish" disabled="" id="finishBouquet">завершити букет ✨</button>
+</div>
+</div>
+<div class="glass snacks-panel">
+<div class="panel-head"><h3>Смакота</h3><p>Snickers, сирки, полуничне молоко і желейки. Коротше, набір речей, з якими тебе вже дуже легко асоціювати 😛</p></div>
+<div class="snack-grid snack-grid-photo">
+<article class="snack-card photo-snack secret-snack" data-snack="snickers">
+<img width="720" height="601" loading="lazy" decoding="async" alt="Snickers" data-src="assets/polished/foods/snickers.webp"/>
+<b>Snickers</b>
+<small>бо «я люблю саме більше снікерс»</small>
+</article>
+<article class="snack-card photo-snack twin-snack secret-snack" data-snack="syrki">
+<div class="twin-row">
+<img width="720" height="240" loading="lazy" decoding="async" alt="Сирок з карамеллю" data-src="assets/polished/foods/syr-caramel.webp"/>
+<img width="720" height="288" loading="lazy" decoding="async" alt="Сирок з ваніллю" data-src="assets/polished/foods/syr-vanilla.webp"/>
+</div>
+<b>Сирки</b>
+<small>карамель + ваніль — база</small>
+</article>
+<article class="snack-card milk-card-real secret-snack" data-snack="milk">
+<div class="milk-card-visual"><span>🍓</span><i>milk</i></div>
+<b>Полуничне молоко</b>
+<small>ти сама сказала, що любиш полуничне — я запам’ятав</small>
+</article>
+<article class="snack-card candy-card real-candy-card">
+<div class="gummy-gallery">
+<img width="480" height="720" loading="lazy" decoding="async" alt="Yummi Gummi" data-src="assets/polished/foods/yummi-rainbow.webp"/>
+<img width="600" height="720" loading="lazy" decoding="async" alt="Haribo" data-src="assets/polished/foods/haribo-worms.webp"/>
+</div>
+<button class="mini-btn" id="gummyBtn">струснути секцію</button>
+<p class="mini-note center" id="gummyText">желейки тут законно важливі</p>
+</article>
+</div>
+</div>
+<div class="glass garage-panel">
+<div class="panel-head"><h3>Гараж</h3><p>Трошки автомобільної дипломатії: BMW для тебе, Audi — щоб я теж не мовчав.</p></div>
+<div class="garage-cards photo-garage">
+<article class="car-card photo-car-card secret-car" data-car="bmw">
+<div class="photo-grid two-top one-bottom">
+<img width="900" height="506" loading="lazy" decoding="async" alt="BMW front" data-src="assets/polished/cars/bmw-front.webp"/>
+<img width="900" height="468" loading="lazy" decoding="async" alt="BMW side" data-src="assets/polished/cars/bmw-side.webp"/>
+<img width="900" height="507" loading="lazy" decoding="async" alt="BMW rear" data-src="assets/polished/cars/bmw-rear.webp"/>
+</div>
+<div class="car-copy"><b>BMW Touring</b><small>зелена, зла і дуже красива. майже без шансів не дивитись</small></div>
+</article>
+<article class="car-card photo-car-card secret-car" data-car="audi">
+<div class="photo-grid one-top two-bottom">
+<img width="900" height="424" loading="lazy" decoding="async" alt="Audi 1" data-src="assets/polished/cars/audi-blue.webp"/>
+<img width="900" height="632" loading="lazy" decoding="async" alt="Audi 2" data-src="assets/polished/cars/audi-black-front.webp"/>
+<img width="900" height="633" loading="lazy" decoding="async" alt="Audi 3" data-src="assets/polished/cars/audi-black-rear.webp"/>
+</div>
+<div class="car-copy"><b>Audi</b><small>чорна, серйозна. моя сторона цього автомобільного спору</small></div>
+</article>
+</div>
+<div class="garage-note-line">
+<span class="garage-note-pill">+ Mustang все одно почесний гість цієї секції</span>
+<span class="garage-note-pill soft">і так, тут без суперечки — просто дві дуже красиві машини</span>
+</div>
+<div class="race-track">
+<div class="lane"><span class="race-car mustang-run" id="mustangRun">BMW</span></div>
+<div class="lane"><span class="race-car audi-run" id="audiRun">Audi</span></div>
+</div>
+<button class="btn secondary" id="raceBtn">влаштувати заїзд</button>
+<p class="mini-note center" id="raceText"></p>
+</div>
+</div>
+</section>
+<section class="page" id="zoo">
+<button class="back" data-go="hub">← назад</button>
+<header class="section-head">
+<p class="eyebrow">класифікатор Макса</p>
+<h2>Хто сьогодні Макс?</h2>
+<p>Тут усе офіційно: «хороша собачка» → «я мальтіпу» → потім бібізяна. А по лінії холодних рук було: ящірка → жаба → пуголовок.</p>
+</header>
+<div class="zoo-layout">
+<div class="glass wheel-panel">
+<div class="wheel" id="zooWheel">
+<div class="wheel-center">?</div>
+<span class="wheel-item w1">🐶</span>
+<span class="wheel-item w2">🐒</span>
+<span class="wheel-item w3">🐸</span>
+<span class="wheel-item w4">🚫</span>
+</div>
+<button class="btn primary" id="spinZooBtn">визначити</button>
+<div class="zoo-mini-actions"><button class="mini-btn" id="zooSecretBtn">а якщо серйозно?</button></div>
+<p class="result-line" id="zooResult">натисни й побачимо хто ти сьогодні</p>
+</div>
+<div class="glass lore-panel" id="zooLore">
+<div class="lore-card active" data-type="maltipu">
+<h3>мальтіпу</h3>
+<p>Коли ти гладила мене по волоссю і сказала «хороша собачка», я відповів: «я мальтіпу».</p>
+</div>
+<div class="lore-card" data-type="bibizyana">
+<h3>бібізяна</h3>
+<p>Еволюція мальтіпу. Актуальна версія, бо тепер ти взагалі часто мене так називаєш.</p>
+</div>
+<div class="lore-card" data-type="pugolovok">
+<h3>пуголовок</h3>
+<p>Через холодні руки: спочатку ящірка, потім жаба, а потім уже пуголовок. Абсолютно логічна еволюція.</p>
+</div>
+<div class="lore-card" data-type="nopod">
+<h3>макс сьогодні без пода</h3>
+<p>Бо вночі ти його конфіскувала і не хотіла віддавати. Ми ж домовились: «нє нєльзя» 😛</p>
+</div>
+</div>
+</div>
+</section>
+<section class="page" id="archive">
+<button class="back" data-go="hub">← назад</button>
+<header class="section-head">
+<p class="eyebrow">реальні скріни</p>
+<h2>Telegram-архів</h2>
+<p>Тут уже без переказу. Просто лишаю моменти, які мені дуже подобаються, як вони є.</p>
+</header>
+<div class="archive-filter chip-row">
+<button class="chip active" data-filter="all">все</button>
+<button class="chip" data-filter="cute">миле</button>
+<button class="chip" data-filter="funny">смішне</button>
+<button class="chip" data-filter="late">нічне</button>
+<button class="chip" data-filter="support">підтримка</button>
+</div>
+<div class="archive-nav glass">
+<button class="mini-btn" id="archivePrev">←</button>
+<span>свайпай або листай стрілками</span>
+<button class="mini-btn" id="archiveNext">→</button>
+</div>
+<div class="archive-grid" id="archiveGrid">
+<button class="shot-card glass" data-filter-item="funny cute" data-full="assets/screens/01-socks-choco.webp" data-img="assets/screens/focus/01-socks-choco.webp" data-title="Шоколадка + шкарпетки"><img width="900" height="906" loading="lazy" decoding="async" alt="Шоколадка і шкарпетки" data-src="assets/screens/focus/01-socks-choco.webp"/><span>шоколадка + шкарпетки</span></button>
+<button class="shot-card glass" data-filter-item="cute" data-full="assets/screens/02-openess.webp" data-img="assets/screens/focus/02-openess.webp" data-title="Що їй у мені подобається"><img width="900" height="1087" loading="lazy" decoding="async" alt="Що їй у мені подобається" data-src="assets/screens/focus/02-openess.webp"/><span>що їй у мені подобається</span></button>
+<button class="shot-card glass" data-filter-item="funny cute" data-full="assets/screens/03-snickers.webp" data-img="assets/screens/focus/03-snickers.webp" data-title="Snickers / сирки / молоко"><img width="900" height="1268" loading="lazy" decoding="async" alt="Snickers, сирки, молоко" data-src="assets/screens/focus/03-snickers.webp"/><span>snickers / сирки / молоко</span></button>
+<button class="shot-card glass" data-filter-item="funny late" data-full="assets/screens/04-grechka-a.webp" data-img="assets/screens/focus/04-grechka-a.webp" data-title="Гречка + мурашки"><img width="877" height="1300" loading="lazy" decoding="async" alt="Гречка і мурашки" data-src="assets/screens/focus/04-grechka-a.webp"/><span>гречка + мурашки</span></button>
+<button class="shot-card glass" data-filter-item="cute late" data-full="assets/screens/05-grechka-b.webp" data-img="assets/screens/focus/05-grechka-b.webp" data-title="Голова на плечі"><img width="846" height="1300" loading="lazy" decoding="async" alt="Голова на плечі" data-src="assets/screens/focus/05-grechka-b.webp"/><span>голова на плечі</span></button>
+<button class="shot-card glass" data-filter-item="late cute" data-full="assets/screens/06-night-talks.webp" data-img="assets/screens/focus/06-night-talks.webp" data-title="Щось новеньке"><img width="835" height="1300" loading="lazy" decoding="async" alt="Щось новеньке" data-src="assets/screens/focus/06-night-talks.webp"/><span>нічна розмова</span></button>
+<button class="shot-card glass" data-filter-item="late cute" data-full="assets/screens/07-tactile.webp" data-img="assets/screens/focus/07-tactile.webp" data-title="Тактильність"><img width="877" height="1300" loading="lazy" decoding="async" alt="Тактильність" data-src="assets/screens/focus/07-tactile.webp"/><span>тактильність</span></button>
+<button class="shot-card glass" data-filter-item="cute" data-full="assets/screens/08-first-love.webp" data-img="assets/screens/focus/08-first-love.webp" data-title="Перше прямо «люблю»"><img width="900" height="1154" loading="lazy" decoding="async" alt="Перше люблю" data-src="assets/screens/focus/08-first-love.webp"/><span>перше «люблю»</span></button>
+<button class="shot-card glass" data-filter-item="cute" data-full="assets/screens/09-mutual-love.webp" data-img="assets/screens/focus/09-mutual-love.webp" data-title="Взаємне «люблю»"><img width="900" height="1173" loading="lazy" decoding="async" alt="Взаємне люблю" data-src="assets/screens/focus/09-mutual-love.webp"/><span>взаємне «люблю»</span></button>
+<button class="shot-card glass" data-filter-item="support" data-full="assets/screens/10-support.webp" data-img="assets/screens/focus/10-support.webp" data-title="Підтримка"><img width="900" height="1220" loading="lazy" decoding="async" alt="Підтримка" data-src="assets/screens/focus/10-support.webp"/><span>підтримка</span></button>
+<button class="shot-card glass" data-filter-item="support cute" data-full="assets/screens/11-luck.webp" data-img="assets/screens/focus/11-luck.webp" data-title="Ти реально удачу приносиш"><img width="900" height="1163" loading="lazy" decoding="async" alt="Ти реально удачу приносиш" data-src="assets/screens/focus/11-luck.webp"/><span>удача</span></button>
+</div>
+</section>
+<section class="page secret-page" id="secret">
+<button class="back" data-go="hub">← назад</button>
+<div class="secret-shell glass">
+<p class="eyebrow">ну і як ти це знайшла?</p>
+<h2>секретна кімната</h2>
+<p>Тут майже нічого нема. Майже.</p>
+<button class="btn primary" id="secretCowBtn">ну що тут?</button>
+<div class="secret-cow-stage" id="secretCowStage">
+<img width="720" height="720" loading="lazy" decoding="async" alt="маленьке телятко" data-src="assets/polished/extras/cow-2.webp"/>
+<p>вона десь в дорозі. просто чекає свого моменту, щоб бігати з тобою 🥺</p>
+</div>
+</div>
+</section>
+<section class="page final-page" id="final">
+<button class="back" data-go="hub">← назад</button>
+<div class="final-gate glass" id="finalGate">
+<div class="big-envelope"><span class="seal">♡</span></div>
+<p class="eyebrow">на кінець</p>
+<h2>Точно відкриваєш?</h2>
+<p>Тут уже без приколів, хоча зовсім без них я теж не вмію.</p>
+<button class="btn primary" id="openLetterBtn">та відкриваю</button>
+</div>
+<article class="letter glass hidden" id="finalLetter">
+<p class="eyebrow">Тані</p>
+<h2>Сонечко.</h2>
+<p>Я довго думав, що сюди написати, щоб це не було якимось занадто пафосним текстом, який ніби красивий, але взагалі не про нас.</p>
+<p>І найчесніше, що я можу сказати: мені дуже добре з тобою. Реально. Мені подобається, що ми можемо і говорити про серйозне, і сміятись з якоїсь гречки, і сидіти вночі до 3–4 ранку, бо ніхто не хоче закінчувати розмову.</p>
+<p>Мені подобаються наші прогулянки, наші прощання, коли ніхто не хоче йти, обійми, тримати тебе за руку, класти голову тобі на плече і коли ти кладеш свою, дивитися на зорі, шукати ведмедиці, загадувати бажання і просто бути поруч. Оце все — мімімі 🥺</p>
+<p>Мені дуже цінно, що ми так швидко стали близькими, що між нами є довіра, що ми все обговорюємо і що після розмов з тобою реально стає легше.</p>
+<p>В нас усе якось не як в людей. Але мені саме це і подобається. Час покаже як карта ляже, але поки вона лягла мені дуже подобається 😛</p>
+<p class="accent-line">Короче. Люблю тебе. Дуже ❤️</p>
+<p class="sign">Твій мальтіпу / бібізяна / пуголовок ♡</p>
+<button class="tiny-secret final-secret" id="finalSecret">03:13</button>
+</article>
+</section></div>
+  </main>
+
+  <div id="comfortModal" class="comfort-modal hidden">
+    <div class="comfort-card glass"><button class="comfort-close" id="comfortClose">×</button><span class="comfort-emoji">❤️</span><p id="comfortText">я десь тут. навіть якщо зараз не поруч.</p><button class="mini-btn" id="comfortMore">ще</button></div>
+  </div>
+
+  <div id="lightbox" class="lightbox hidden">
+    <button id="closeLightbox" class="lightbox-close">×</button>
+    <div class="lightbox-content"><img id="lightboxImg" src="" alt=""><p id="lightboxTitle"></p><button class="mini-btn lightbox-full-btn" id="lightboxFullBtn">показати весь скрін</button></div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
