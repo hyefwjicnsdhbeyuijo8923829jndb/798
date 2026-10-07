@@ -12,6 +12,7 @@ import {initZoo} from './zoo.js';
 import {initArchive} from './archive.js';
 import {initSecrets,initFinal} from './secrets.js';
 import {initCuteStuff} from './cute.js';
+import {initLater} from './later.js';
 
 function initIntro(){
   on('#normalChoice','click',()=>$('#wrongAnswer')?.classList.add('show'));
@@ -43,6 +44,7 @@ async function boot(){
     initSecrets();
     initFinal();
     initCuteStuff();
+    initLater();
     initScrollReveal();
     initTapGlow();
     initAnimationVisibility();

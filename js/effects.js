@@ -56,7 +56,7 @@ export function initHeart(){
 }
 
 export function initScrollReveal(){
-  const targets=$$('.story-card, .hub-card, .touch-card, .mood-card, .bouquet-panel, .snacks-panel, .garage-panel, .shot-card, .lore-panel, .wheel-panel, .goodbye-visual, .goodbye-list, .missed-moment, .missed-chat, .missed-final, .tanya-shot');
+  const targets=$$('.story-card, .hub-card, .touch-card, .mood-card, .bouquet-panel, .snacks-panel, .garage-panel, .shot-card, .lore-panel, .wheel-panel, .goodbye-visual, .goodbye-list, .missed-moment, .missed-chat, .missed-final, .after-missed-bridge, .later-card, .tanya-shot');
   targets.forEach(el=>el.classList.add('reveal-on-scroll'));
   const io=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');io.unobserve(entry.target);}}),{threshold:.1,rootMargin:'0px 0px -35px 0px'});
   targets.forEach(el=>io.observe(el));

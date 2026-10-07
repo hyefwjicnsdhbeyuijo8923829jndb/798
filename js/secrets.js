@@ -22,14 +22,12 @@ export function initSecrets(){
   on('#grechkaSecret','click',()=>showToast('а каша яка? гречана? 😛'));
   on('#finalSecret','click',()=>showToast('«дуже дуже. ті моменти це просто… ну словами не описати» 🥺'));
   $$('.tanya-shot').forEach((shot,i)=>shot.addEventListener('click',()=>showToast(['Сонечко 🥰','Зайчик 💋','Киця ❤️'][i]||'мімімі')));
-  let brandClicks=0;
-  $('.brand')?.addEventListener('click',()=>{brandClicks++;if(brandClicks>=3){showToast('7 · 9 · 8 — ну реально в нас все не як в людей ♡');brandClicks=0}});
 }
 
 export function initFinal(){
   on('#openLetterBtn','click',()=>{
     const gate=$('#finalGate'),letter=$('#finalLetter');gate?.classList.add('opening');
     for(let i=0;i<18;i++){const h=document.createElement('span');h.className='letter-heart';h.textContent='♡';h.style.left=(40+Math.random()*20)+'%';h.style.top=(45+Math.random()*10)+'%';h.style.setProperty('--dx',((Math.random()-.5)*260)+'px');h.style.setProperty('--dy',(-80-Math.random()*180)+'px');document.body.appendChild(h);setTimeout(()=>h.remove(),1500)}
-    setTimeout(()=>{gate?.classList.add('hidden');letter?.classList.remove('hidden');requestAnimationFrame(()=>letter?.classList.add('letter-visible'))},700);
+    setTimeout(()=>{gate?.classList.add('hidden');letter?.classList.remove('hidden');requestAnimationFrame(()=>{letter?.classList.add('letter-visible');$('.final-footer-secret')?.classList.add('visible')})},700);
   });
 }
